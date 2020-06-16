@@ -1,0 +1,507 @@
+{
+    "基本":
+    {
+        "parameters": [
+            {
+                "name": "idle_state",
+                "type": "Float"
+            },
+            {
+                "name": "move_state",
+                "type": "Float"
+            },
+            {
+                "name": "speedy",
+                "type": "Float"
+            },
+            {
+                "name": "isGrounded",
+                "type": "Bool"
+            },
+            {
+                "name": "relative_speedx",
+                "type": "Float"
+            }
+        ],
+        "states": [
+            {
+                "name": "Idle",
+                "tag": "idle",
+                "animName": "idle",
+                "blendTree": {
+                    "blendParameter": "idle_state",
+                    "childMotions": [
+                        {},
+                        {}
+                    ]
+                },
+                "transitions": [
+                    {
+                        "destinationAnimName": "Action1-1",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "action1_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Action2-1",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "action2_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Action3-1",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 0.3,
+                        "conditions": [
+                            {
+                                "parameter": "action3_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Action4-1",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "action4_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Move",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "move_state",
+                                "animatorConditionMode": "Greater",
+                                "threshold": 0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Move",
+                "tag": "move",
+                "animName": "move",
+                "blendTree": {
+                    "blendParameter": "move_state",
+                    "childMotions": [
+                        {},
+                        {},
+                        {}
+                    ]
+                },
+                "transitions": [
+                    {
+                        "destinationAnimName": "Action1-1",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "action1_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Action2-1",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "action2_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Action3-1",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 0.3,
+                        "conditions": [
+                            {
+                                "parameter": "action3_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Action4-1",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "action4_begin",
+                                "animatorConditionMode": "If",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "conditions": [
+                            {
+                                "parameter": "move_state",
+                                "animatorConditionMode": "Less",
+                                "threshold": 0.1
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "transitions": [
+        ]
+    },
+    "攻击":
+    {
+        "parameters": [
+            {
+                "name": "action1_begin",
+                "type": "Trigger"
+            },
+            {
+                "name": "action2_begin",
+                "type": "Trigger"
+            },
+            {
+                "name": "action3_begin",
+                "type": "Trigger"
+            },
+            {
+                "name": "action4_begin",
+                "type": "Trigger"
+            }
+        ],
+        "states": [
+
+            {
+                "name": "Action1-1",
+                "tag": "attack",
+                "animName": "attack",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 0.6,
+                        "conditions": [
+                            {
+                                "parameter": "relative_speedx",
+                                "animatorConditionMode": "Less",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 1,
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "Action2-1",
+                "tag": "attack",
+                "animName": "attack",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 0.6,
+                        "conditions": [
+                            {
+                                "parameter": "relative_speedx",
+                                "animatorConditionMode": "Less",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 1,
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "Action3-1",
+                "tag": "attack",
+                "animName": "attack",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 0.6,
+                        "conditions": [
+                            {
+                                "parameter": "relative_speedx",
+                                "animatorConditionMode": "Less",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 1,
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "Action4-1",
+                "tag": "attack",
+                "animName": "attack",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 0.6,
+                        "conditions": [
+                            {
+                                "parameter": "relative_speedx",
+                                "animatorConditionMode": "Less",
+                                "threshold": 0
+                            }
+                        ]
+                    },
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "exitTime": 1,
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    "受击":
+    {
+        "parameters":
+        [
+            {
+                "name": "hurt",
+                "type": "Trigger"
+            },
+            {
+                "name": "hurt_type",
+                "type": "Float"
+            },
+            {
+                "name": "hurt_direction",
+                "type": "Float"
+            }
+        ],
+        "states": [
+            {
+                "name": "Hurt",
+                "tag": "hurt",
+                "blendTree": {
+                    "blendParameter": "hurt_direction",
+                    "childMotions": [
+                        {},
+                        {}
+                    ]
+                },
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "HurtRecovery",
+                "tag": "hurt",
+                "blendTree": {
+                    "blendParameter": "hurt_direction",
+                    "childMotions": [
+                        {},
+                        {}
+                    ]
+                },
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "Hurt_fly",
+                "tag": "hurt",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "Hurt_fling",
+                "tag": "hurt",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Hurt_flyend",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "name": "Hurt_flyend",
+                "tag": "hurt",
+                "transitions": [
+                    {
+                        "destinationAnimName": "Idle",
+                        "duration": 0.1,
+                        "hasExitTime": true,
+                        "conditions": []
+                    }
+                ]
+            }
+        ],
+        "transitions":
+        [
+            {
+                "ignoreSourceAnimNames": [
+                    "Hurt"
+                ],
+                "sourceAnimName": "Any",
+                "destinationAnimName": "Hurt_fly",
+                "duration": 0.1,
+                "conditions": [
+                    {
+                        "parameter": "hurt",
+                        "animatorConditionMode": "If",
+                        "threshold": 0
+                    },
+                    {
+                        "parameter": "hurt_type",
+                        "animatorConditionMode": "Greater",
+                        "threshold": 2
+                    },
+                    {
+                        "parameter": "hurt_type",
+                        "animatorConditionMode": "Less",
+                        "threshold": 3.1
+                    }
+                ]
+            },
+            {
+                "ignoreSourceAnimNames": [],
+                "sourceAnimName": "Any",
+                "destinationAnimName": "Hurt",
+                "duration": 0.1,
+                "conditions": [
+                    {
+                        "parameter": "hurt",
+                        "animatorConditionMode": "If",
+                        "threshold": 0
+                    }
+                ]
+            }
+        ]
+    },
+    "死亡":
+    {
+        "parameters": [
+            {
+                "name": "isDead",
+                "type": "Bool"
+            }
+        ],
+        "states": [
+            {
+                "name": "Die",
+                "tag": "die",
+                "transitions": []
+            }
+        ],
+        "transitions": [
+            {
+                "ignoreSourceAnimNames": [
+                    "Die"
+                ],
+                "sourceAnimName": "Any",
+                "destinationAnimName": "Die",
+                "duration": 0.1,
+                "conditions": [
+                    {
+                        "parameter": "isDead",
+                        "animatorConditionMode": "If",
+                        "threshold": 0
+                    }
+                ]
+            }
+        ]
+    },
+    "额外状态":
+    {
+        "parameters": [
+            {
+                "//": "嘲讽",
+                "name": "sneer",
+                "type": "Trigger"
+            }
+        ],
+        "states": [
+            {
+                "name": "Sneer",
+                "tag": "",
+                "transitions": []
+            }
+        ],
+        "transitions": [
+            {
+                "containSourceAnimTags": [
+                    "idle",
+                    "move"
+                ],
+                "sourceAnimName": "Any",
+                "destinationAnimName": "Sneer",
+                "duration": 0.1,
+                "conditions": [
+                    {
+                        "parameter": "sneer",
+                        "animatorConditionMode": "If",
+                        "threshold": 0
+                    }
+                ]
+            }
+        ]
+    }
+}

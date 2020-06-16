@@ -1,0 +1,8 @@
+﻿
+function Start () {
+	
+}
+
+function Update () {
+	
+}

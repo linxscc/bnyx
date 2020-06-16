@@ -1,0 +1,63 @@
+
+
+
+
+
+接口
+{
+    show()
+    {
+        
+    }
+
+    hide()
+    {
+
+    }
+}
+
+
+
+
+
+界面1 : 接口
+{
+    tween;
+
+    show()
+    {
+        tween.stop()
+
+        active = true;
+        tween = moveTo ...
+    }
+
+    hide()
+    {
+        tween.stop()
+        
+        moveTo ..
+        active = false
+    }
+}
+
+
+界面2 : 接口
+{
+    show()
+    {
+        active = true;
+        moveTo ...
+    }
+
+    hide()
+    {
+        moveTo ..
+        active = false
+    }
+}
+
+
+
+
+
